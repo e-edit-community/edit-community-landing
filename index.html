@@ -174,7 +174,7 @@ h1 em,h2 span,h2 em{color:var(--purple);font-style:normal}
 .metric-star{color:var(--sand-deep)!important;font-size:28px!important;line-height:1}
 
 /* ===== STATEMENT ===== */
-.statement{display:grid;grid-template-columns:18% 1fr;gap:30px;padding-top:120px;padding-bottom:120px;align-items:start}
+.statement{display:grid;grid-template-columns:1fr;gap:30px;padding-top:120px;padding-bottom:120px;align-items:start}
 .statement .section-kicker,.statement-content{padding-top:11px}
 .statement-content h2{max-width:740px;margin-bottom:23px;font-size:clamp(36px,4.9vw,68px)}
 .statement-content p{max-width:510px;margin:0;color:var(--muted);font-size:14.5px;line-height:2}
@@ -494,7 +494,6 @@ section[id]{scroll-margin-top:110px}
 
     <!-- ===== STATEMENT ===== -->
     <section class="statement section-pad" aria-labelledby="statement-title">
-      <div class="section-kicker" data-i18n="statement.kicker">الوعد</div>
       <div class="statement-content">
         <h2 id="statement-title" data-i18n-html="statement.title">لا نركّب فيديوهات فقط.<br /><span>نبني لك سببًا للشراء.</span></h2>
         <p data-i18n="statement.body">نساعدك على جلب مبيعات لمشاريعك وبناء براند قوي ينافس السوق — عندما نلتزم بالعملية من أول مكالمة إلى آخر منشور.</p>
@@ -503,9 +502,9 @@ section[id]{scroll-margin-top:110px}
 
     <!-- ===== WORK (structure from page 1: 3 columns × 2 vertical reels) ===== -->
     <section class="work section-pad" id="work" aria-labelledby="work-title">
+      <div class="handler"><span class="l"></span><span data-i18n="work.kicker">مساحة الأعمال</span><span class="l"></span></div>
       <div class="section-heading-row">
         <div>
-          <div class="handler"><span class="l"></span><span data-i18n="work.kicker">مساحة الأعمال</span><span class="l"></span></div>
           <h2 id="work-title" data-i18n-html="work.title">الفيديو القادم<br /><span>ممكن يكون هنا.</span></h2>
         </div>
       </div>
@@ -534,8 +533,8 @@ section[id]{scroll-margin-top:110px}
 
     <!-- ===== PROCESS (page 2) ===== -->
     <section class="process section-pad" id="process" aria-labelledby="process-title">
+      <div class="handler"><span class="l"></span><span data-i18n="process.kicker">العملية</span><span class="l"></span></div>
       <div class="process-intro">
-        <div class="handler"><span class="l"></span><span data-i18n="process.kicker">العملية</span><span class="l"></span></div>
         <h2 id="process-title" data-i18n-html="process.title">شغل مرتب.<br /><span>نتيجة أوضح.</span></h2>
         <p data-i18n="process.body">كل مرحلة لها هدف، وكل موعد له معنى. نخلّي صناعة المحتوى أسهل عليك وأكثر اتساقًا لجمهورك.</p>
         <a class="arrow-link" href="#contact"><span data-i18n="process.link">اسألنا عن التفاصيل</span> <span class="arrow" aria-hidden="true">↗</span></a>
