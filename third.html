@@ -191,7 +191,7 @@ h1 em,h2 span,h2 em{color:var(--purple);font-style:normal}
 .ratio:hover .play path.bg,.hero-video:hover .play path.bg{fill:var(--purple);fill-opacity:1}
 
 /* ===== METRICS ===== */
-.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:25px;padding-top:24px;padding-bottom:45px;min-height:100svh;min-height:100vh;align-content:center;
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:25px;padding-top:24px;padding-bottom:45px;align-content:center;}
   border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .metric{display:flex;flex-direction:column;gap:1px}
 .metric strong{font:700 30px/1.25 var(--num);letter-spacing:-.06em}
@@ -1175,6 +1175,24 @@ document.addEventListener('click', function(e){
      !mobileNav.contains(e.target) && !menuToggle.contains(e.target)){
     closeMobileNav();
   }
+});
+
+/* ===== Nav link scrolling: bring section title just below the header ===== */
+document.querySelectorAll('a[href^="#"]').forEach(function(link){
+  link.addEventListener('click', function(e){
+    var id = (this.getAttribute('href') || '').replace(/^#/,'');
+    if(!id) return;
+    var sec = document.getElementById(id);
+    if(!sec) return;
+    e.preventDefault();
+    var target = sec.querySelector('h1,h2,.handler') || sec;
+    var nav = document.querySelector('.navbar');
+    var navH = nav ? nav.getBoundingClientRect().height : 60;
+    var top = target.getBoundingClientRect().top + window.scrollY - navH - 14;
+    if(top < 0) top = 0;
+    window.scrollTo({ top: top, behavior: 'smooth' });
+    if(typeof closeMobileNav === 'function') closeMobileNav();
+  });
 });
 
 /* ===== Active nav highlighting ===== */
