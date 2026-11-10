@@ -1,0 +1,1162 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Edit Community — محتوى عقاري يبيع</title>
+<meta name="description" content="إديت كوميونيتي — مونتاج محتوى عقاري يساعد الوسطاء والملاك على بناء براند قوي وجذب مبيعات أكثر." />
+<meta name="theme-color" content="#1B0B24" />
+<link rel="icon" type="image/png" href="assets/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
+<script>document.documentElement.classList.add('js');
+try{var savedEarly=localStorage.getItem('ec-lang');
+  if(savedEarly==='en'){document.documentElement.lang='en';document.documentElement.dir='ltr';}
+  else if(savedEarly==='darija'){document.documentElement.lang='ar-MA';document.documentElement.dir='ltr';}
+}catch(e){}</script>
+<style>
+/* =========================================================
+   EDIT COMMUNITY — Landing v3
+   الهوية: بنفسجي #721D9B + رملي #EAB57E (بدل الأزرق)
+   الهيرو: تصميم الصفحة الثانية · الأعمال + الشروط + التواصل: الصفحة الأولى
+   ========================================================= */
+:root{
+  --ink:#1B0B24;
+  --ink-soft:#4A3852;
+  --muted:#7C6C84;
+  --paper:#FAF7F3;
+  --white:#fff;
+  --line:#E9DFD6;
+  --purple:#721D9B;
+  --purple-deep:#56127A;
+  --purple-bright:#9C4CC5;
+  --purple-pale:#F3E8F8;
+  --sand:#EAB57E;
+  --sand-deep:#C98A4B;
+  --sand-pale:#FBF0E2;
+  --shadow:0 26px 70px rgba(27,11,36,.13);
+  --radius-lg:30px;
+  --radius-md:18px;
+  --sans:"IBM Plex Sans Arabic",Tahoma,sans-serif;
+  --num:"Manrope","IBM Plex Sans Arabic",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit}
+button{border:0}
+img{max-width:100%;display:block}
+::selection{color:#fff;background:var(--purple)}
+:focus-visible{outline:2px solid var(--purple);outline-offset:3px}
+
+.site-shell{overflow:hidden}
+.section-pad{padding-inline:clamp(22px,7vw,108px)}
+
+/* ===== NAVBAR — floating glass pill (same as page 1) ===== */
+.navbar{direction:ltr;position:sticky;top:12px;z-index:100;margin:12px auto 0;
+  width:min(1000px,94vw);display:grid;grid-template-columns:auto auto 1fr auto;align-items:center;
+  gap:14px;padding:7px 9px 7px 7px;border-radius:999px;
+  background:rgba(255,255,255,.74);
+  border:1px solid rgba(114,29,155,.15);
+  backdrop-filter:blur(20px) saturate(150%);-webkit-backdrop-filter:blur(20px) saturate(150%)}
+.wordmark{display:inline-flex;align-items:center;flex:0 0 auto}
+.navbar .wordmark{padding-inline-start:4px}
+.navbar .wordmark img{width:108px;height:auto}
+.lang-seg{display:inline-flex;gap:2px;padding:4px;border-radius:999px;
+  background:#fff;border:1px solid rgba(114,29,155,.2)}
+.lang-seg button{font-family:var(--num);font-size:11px;font-weight:700;letter-spacing:.02em;line-height:1;
+  color:#8B7A93;border:0;background:transparent;cursor:pointer;padding:7px 9px;border-radius:999px;
+  transition:color .18s ease,background .18s ease;outline:none;-webkit-tap-highlight-color:transparent}
+.lang-seg button:hover{color:var(--purple)}
+.lang-seg button.active{background:var(--purple);color:#fff}
+.nav-links{display:flex;gap:26px;justify-content:center;min-width:0}
+html[dir="rtl"] .nav-links{direction:rtl}
+.nav-links a{position:relative;font-family:var(--sans);font-size:13.5px;font-weight:500;color:var(--ink-soft);
+  white-space:nowrap;transition:color .2s ease}
+.nav-links a::after{content:"";position:absolute;inset-inline:0;bottom:-7px;height:2px;border-radius:2px;
+  background:var(--purple);transform:scaleX(0);transform-origin:center;transition:transform .25s ease}
+.nav-links a:hover{color:var(--purple)}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav-cta{min-height:40px;padding:0 18px;border-radius:999px;font-size:12.5px;gap:8px;white-space:nowrap}
+.nav-cta:hover{transform:none}
+
+/* ===== BUTTONS ===== */
+.button{display:inline-flex;justify-content:center;align-items:center;gap:18px;min-height:49px;padding:11px 23px;
+  border-radius:9px;font-size:13.5px;font-weight:700;cursor:pointer;
+  transition:transform .22s ease,background .22s ease,box-shadow .22s ease}
+.button .arrow{font-family:var(--num);font-size:18px;line-height:1;display:inline-block}
+html[dir="ltr"] .button .arrow{transform:scaleX(-1)}
+.button:hover{transform:translateY(-3px)}
+.button-primary{color:#fff;background:var(--purple);box-shadow:0 10px 24px rgba(114,29,155,.22)}
+.button-primary:hover{background:var(--purple-deep);box-shadow:0 16px 32px rgba(114,29,155,.3)}
+.button-light{color:var(--ink);background:var(--sand)}
+.button-light:hover{background:#f0c493;box-shadow:0 12px 26px rgba(0,0,0,.18)}
+
+/* ===== HERO ===== */
+.hero{min-height:min(730px,calc(100vh - 86px));display:grid;
+  grid-template-columns:minmax(0,1.02fr) minmax(370px,.98fr);
+  gap:clamp(34px,7vw,110px);align-items:center;padding-top:64px;padding-bottom:78px}
+.hero-copy{padding-top:6px}
+.eyebrow,.section-kicker{color:var(--purple);font-size:12.5px;font-weight:700}
+.eyebrow{display:flex;align-items:center;gap:9px;margin-bottom:22px}
+.eyebrow-dot{display:inline-block;width:8px;height:8px;border-radius:99px;background:var(--sand);
+  box-shadow:0 0 0 4px rgba(234,181,126,.28)}
+h1,h2,h3,p{margin-top:0}
+h1,h2{line-height:1.18;letter-spacing:-.01em}
+h1{max-width:640px;margin-bottom:24px;font-size:clamp(45px,6.2vw,86px);font-weight:700}
+h1 em,h2 span,h2 em{color:var(--purple);font-style:normal}
+.hero-lead{max-width:440px;margin-bottom:32px;color:var(--muted);font-size:16px;line-height:2}
+.hero-actions{display:flex;align-items:center;gap:26px;margin-bottom:0;flex-wrap:wrap}
+.text-link{color:var(--ink-soft);font-size:13.5px;font-weight:700;transition:color .2s ease}
+.text-link:hover{color:var(--purple)}
+.text-link .arrow{margin-inline-start:7px;color:var(--purple);font-family:var(--num);font-size:16px}
+
+/* HERO ART */
+.hero-art{min-height:540px;position:relative;display:grid;place-items:center;isolation:isolate}
+.hero-art::before{content:"";position:absolute;inset:8% 4% 4%;z-index:-3;
+  border-radius:48% 52% 46% 54%;background:var(--purple-pale);transform:rotate(-8deg)}
+.hero-art::after{content:"";position:absolute;width:130px;height:130px;top:6%;right:4%;z-index:-2;
+  border-radius:50%;background:var(--sand);opacity:.32;filter:blur(2px)}
+.art-orbit{position:absolute;border:1px solid rgba(114,29,155,.22);border-radius:50%;z-index:-2}
+.orbit-one{width:80%;height:50%;transform:rotate(30deg)}
+.orbit-two{width:64%;height:82%;transform:rotate(-35deg)}
+.hero-video-card{width:min(302px,68%);padding:12px;position:relative;z-index:1;border-radius:24px;
+  background:var(--ink);box-shadow:0 32px 60px rgba(27,11,36,.3);
+  transform:rotate(6deg);animation:lift 7s ease-in-out infinite}
+.video-card-top{display:flex;justify-content:space-between;align-items:center;gap:10px;
+  padding:4px 6px 11px;color:rgba(255,255,255,.65);font-family:var(--num);font-size:8px;direction:ltr}
+.video-live{color:var(--sand);font:600 8px var(--sans);white-space:nowrap}
+.video-live::first-letter{font-size:11px}
+.hero-video{position:relative;display:block;width:100%;aspect-ratio:9/16;max-height:336px;
+  border-radius:15px;overflow:hidden;background:#140819;cursor:pointer}
+.hero-video .thumb{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .55s ease}
+.hero-video:hover .thumb{transform:scale(1.05)}
+.hero-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:3}
+.video-card-caption{display:flex;justify-content:space-between;align-items:center;
+  padding:12px 5px 4px;color:#fff;font-size:10.5px;line-height:1.5}
+.video-card-caption b{color:var(--sand);font-weight:600}
+.round-arrow{display:grid;place-items:center;width:28px;height:28px;flex:0 0 auto;
+  border:1px solid rgba(255,255,255,.35);border-radius:50%;color:#fff;font-family:var(--num);font-size:13px}
+.floating-tag{position:absolute;z-index:2;display:flex;align-items:center;gap:7px;padding:8px 13px;
+  border-radius:999px;background:rgba(255,255,255,.9);border:1px solid rgba(114,29,155,.16);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  box-shadow:0 10px 25px rgba(27,11,36,.1);font-size:10.5px;font-weight:700;color:var(--ink-soft);white-space:nowrap}
+.floating-tag b{color:var(--purple);font-weight:700}
+.tag-top{top:12%;left:0}
+.tag-bottom{bottom:13%;right:0;font-family:var(--num);font-size:11px}
+.tag-bottom span{font-family:var(--sans);font-size:10px;color:var(--muted);font-weight:500}
+@keyframes lift{0%,100%{transform:rotate(6deg) translateY(0)}50%{transform:rotate(6deg) translateY(-12px)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+/* ===== VIDEO / PLAY ===== */
+.ratio{position:relative;background:#140819;overflow:hidden;cursor:pointer;border-radius:inherit}
+.ratio.tall{aspect-ratio:9/16}
+.ratio .thumb{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .55s ease}
+.ratio:hover .thumb{transform:scale(1.05)}
+.ratio iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:3}
+.play{position:absolute;inset:0;display:grid;place-items:center;z-index:2;pointer-events:none}
+.play svg{width:64px;height:45px;filter:drop-shadow(0 4px 12px rgba(0,0,0,.35))}
+.play path.bg{fill:#1B0B24;fill-opacity:.8;transition:fill .18s ease,fill-opacity .18s ease}
+.ratio:hover .play path.bg,.hero-video:hover .play path.bg{fill:var(--purple);fill-opacity:1}
+
+/* ===== METRICS ===== */
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:25px;padding-top:24px;padding-bottom:45px;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.metric{display:flex;flex-direction:column;gap:1px}
+.metric strong{font:700 30px/1.25 var(--num);letter-spacing:-.06em}
+.metric span{color:var(--muted);font-size:11.5px}
+.metric-unit{margin-inline-start:5px;color:var(--ink)!important;font:500 12px var(--sans)!important;letter-spacing:0}
+.metric-note{flex-direction:row;align-items:center;gap:11px}
+.metric-star{color:var(--sand-deep)!important;font-size:28px!important;line-height:1}
+
+/* ===== STATEMENT ===== */
+.statement{display:grid;grid-template-columns:18% 1fr 18%;gap:30px;padding-top:120px;padding-bottom:120px;align-items:start}
+.statement .section-kicker,.statement-content{padding-top:11px}
+.statement-content h2{max-width:740px;margin-bottom:23px;font-size:clamp(36px,4.9vw,68px)}
+.statement-content p{max-width:510px;margin:0;color:var(--muted);font-size:14.5px;line-height:2}
+.statement-stamp{justify-self:end;display:flex;align-items:center;gap:9px;width:96px;height:96px;padding:12px;
+  border:1px solid var(--purple);border-radius:50%;color:var(--purple);transform:rotate(-18deg)}
+.statement-stamp span{font:700 30px/1 var(--num)}
+.statement-stamp small{font-size:8px;line-height:1.25}
+
+/* ===== WORK (structure from page 1) ===== */
+.work{padding-top:30px;padding-bottom:120px}
+.section-heading-row{display:flex;align-items:end;justify-content:space-between;gap:40px;margin-bottom:44px}
+.section-heading-row h2,.process-intro h2,.delivery h2,.center-head h2{margin:11px 0 0;font-size:clamp(36px,4.9vw,64px)}
+.section-heading-row p{max-width:310px;margin:0;color:var(--muted);font-size:12.5px;line-height:2}
+.reels{max-width:1040px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:30px;
+  align-items:start;direction:ltr}
+.reel-col{display:flex;flex-direction:column;gap:36px;min-width:0}
+.reel{position:relative;border-radius:26px;background:#140819;aspect-ratio:9/16;
+  box-shadow:0 16px 40px rgba(27,11,36,.12)}
+.reel .ratio{position:absolute;inset:0;border-radius:26px;overflow:hidden}
+
+/* ===== PROCESS (page 2) ===== */
+.process{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(48px,9vw,140px);
+  padding-top:120px;padding-bottom:120px;background:#F1EAF4}
+.process-intro p{max-width:275px;margin:26px 0;color:var(--muted);font-size:13.5px;line-height:2}
+.arrow-link{display:inline-flex;align-items:center;gap:8px;color:var(--ink);font-size:12.5px;font-weight:700}
+.arrow-link .arrow{color:var(--purple);font-family:var(--num);font-size:17px}
+.process-list{padding-top:18px}
+.process-step{display:grid;grid-template-columns:48px 1fr 34px;align-items:start;gap:18px;
+  padding:25px 0;border-top:1px solid #DACBE1}
+.process-step:last-child{border-bottom:1px solid #DACBE1}
+.step-number{color:var(--purple);font:600 11px var(--num);padding-top:6px}
+.process-step h3{margin:0 0 4px;font-size:16.5px}
+.process-step p{max-width:420px;margin:0;color:var(--muted);font-size:12px;line-height:1.95}
+.step-icon{color:var(--purple);font-size:22px;text-align:end}
+
+/* ===== GUIDELINES (structure from page 1) ===== */
+.guidelines{padding-top:112px;padding-bottom:60px;scroll-margin-top:90px}
+.center-head{max-width:680px;margin:0 auto 48px;text-align:center}
+.handler{display:flex;align-items:center;justify-content:center;gap:13px;margin-bottom:12px;
+  color:var(--purple);font-size:12.5px;font-weight:700}
+.handler .l{width:38px;height:2px;border-radius:2px;background:var(--sand)}
+.center-head p{max-width:620px;margin:14px auto 0;color:var(--muted);font-size:14.5px;line-height:1.9}
+.guide-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1120px;margin:0 auto}
+.guide-card{display:flex;flex-direction:column;align-items:center;text-align:center;min-height:310px;
+  padding:44px 32px;border:1px solid var(--line);border-radius:28px;background:#fff;
+  transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.guide-card:hover{transform:translateY(-5px);border-color:rgba(114,29,155,.3);
+  box-shadow:0 22px 45px rgba(27,11,36,.09)}
+.guide-chip{display:grid;place-items:center;width:78px;height:78px;margin-bottom:26px;border-radius:22px;
+  background:linear-gradient(180deg,var(--sand-pale),#F6E2CB);border:1px solid #EFD9BF;
+  color:var(--purple)}
+.guide-chip svg{width:36px;height:36px;stroke:currentColor;fill:none;stroke-width:1.8;
+  stroke-linecap:round;stroke-linejoin:round}
+.guide-card h3{margin-bottom:12px;font-size:22px;font-weight:700}
+.guide-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.95}
+
+/* ===== OFFER ===== */
+.offer{padding-top:95px;padding-bottom:110px}
+.offer-card{position:relative;display:grid;grid-template-columns:1.15fr .85fr 1fr;gap:40px;align-items:center;
+  min-height:380px;padding:clamp(30px,5vw,64px);overflow:hidden;border-radius:var(--radius-lg);
+  background:var(--ink);color:#fff;box-shadow:var(--shadow)}
+.offer-card::after{content:"";position:absolute;width:450px;height:450px;top:-185px;right:-85px;
+  border:1px solid rgba(234,181,126,.22);border-radius:50%;
+  box-shadow:0 0 0 60px rgba(234,181,126,.05),0 0 0 120px rgba(234,181,126,.035)}
+.offer-copy,.offer-price,.offer-includes{position:relative;z-index:1}
+.offer-topline{display:flex;align-items:center;gap:15px;margin-bottom:22px}
+.offer-topline .section-kicker{color:var(--sand)}
+.premium-badge{padding:3px 8px;border:1px solid rgba(234,181,126,.5);border-radius:4px;color:var(--sand);
+  font:700 8px var(--num);letter-spacing:.13em}
+.offer-copy h2{margin:0 0 17px;font-size:clamp(36px,4.7vw,60px)}
+.offer-copy h2 em{color:var(--sand)}
+.offer-copy p{max-width:310px;margin-bottom:28px;color:rgba(255,255,255,.68);font-size:12.5px;line-height:2}
+.offer-price{display:flex;flex-direction:column;align-items:flex-start;gap:6px;direction:ltr}
+.price-row{display:flex;align-items:baseline;gap:8px}
+.price-currency{color:var(--sand);font:700 26px var(--num)}
+.price-number{font:700 clamp(64px,8.6vw,112px)/.9 var(--num);letter-spacing:-.09em}
+.price-period{margin:0;color:rgba(255,255,255,.55);font-size:13px;font-weight:500;letter-spacing:.02em}
+.offer-includes{display:flex;flex-direction:column;gap:13px;padding-bottom:5px}
+.offer-includes div{display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.82);font-size:12px}
+.check{display:grid;place-items:center;width:20px;height:20px;border-radius:50%;color:var(--ink);
+  background:var(--sand);font-size:12px;font-weight:700}
+
+/* ===== DELIVERY ===== */
+.delivery{padding-top:20px;padding-bottom:120px}
+.delivery-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;margin-top:12px}
+.delivery h2{margin-top:0}
+.delivery-items{display:grid;grid-template-columns:1fr 1fr;gap:28px 35px;padding-top:12px}
+.delivery-items>div{display:flex;gap:13px}
+.delivery-icon{display:grid;place-items:center;width:34px;height:34px;flex:0 0 auto;border-radius:9px;
+  color:var(--purple);background:var(--purple-pale);font-size:17px}
+.delivery-items strong{display:block;margin-bottom:5px;font-size:13.5px}
+.delivery-items p{margin:0;color:var(--muted);font-size:11.5px;line-height:1.85}
+
+/* ===== CONTACT (structure from page 1) ===== */
+.contact{position:relative;padding:84px 20px 140px;overflow:hidden;scroll-margin-top:90px}
+.contact::before{content:"";position:absolute;left:50%;bottom:-32%;transform:translateX(-50%);
+  width:1000px;max-width:150vw;height:650px;z-index:0;pointer-events:none;
+  background:radial-gradient(50% 50% at 50% 100%,rgba(114,29,155,.26),transparent 70%);
+  filter:blur(50px);opacity:.75}
+.contact>*{position:relative;z-index:1}
+.contact .handler{margin-bottom:34px}
+.contact-card{width:min(820px,100%);margin:0 auto;padding:clamp(28px,5.5vw,54px);
+  border:1px solid var(--line);border-radius:32px;background:#fff;box-shadow:0 24px 60px rgba(27,11,36,.08)}
+.form-head{text-align:center;margin-bottom:30px}
+.form-icon{display:grid;place-items:center;width:54px;height:54px;margin:0 auto 16px;border-radius:16px;
+  color:var(--purple);background:var(--purple-pale)}
+.form-icon svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.form-head h3{font-size:clamp(22px,3vw,29px);margin-bottom:9px;letter-spacing:-.01em}
+.form-head p{max-width:440px;margin:0 auto;color:var(--muted);font-size:13.5px;line-height:1.9}
+.form-time{display:inline-flex;align-items:center;gap:7px;margin-top:16px;padding:6px 13px;
+  border:1px solid var(--line);border-radius:999px;background:var(--paper);
+  color:var(--ink-soft);font-size:11px;font-weight:600}
+.form-time i{display:block;width:7px;height:7px;border-radius:50%;background:var(--purple)}
+.contact-form{display:flex;flex-direction:column;gap:15px}
+.contact-form label{display:flex;flex-direction:column;gap:6px;color:var(--ink-soft);font-size:12px;font-weight:700}
+.contact-form input,.contact-form select{width:100%;height:50px;padding:0 15px;font-weight:400;
+  border:1px solid rgba(27,11,36,.18);border-radius:10px;outline:none;
+  color:var(--ink);background:#FDFBF8;font-size:13px;transition:border-color .2s ease,box-shadow .2s ease}
+.contact-form input::placeholder{color:#A99EAE}
+.contact-form input:focus,.contact-form select:focus{border-color:var(--purple);
+  box-shadow:0 0 0 3px rgba(114,29,155,.1)}
+.contact-form select{appearance:none;-webkit-appearance:none;padding-inline:15px 44px;
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='8' viewBox='0 0 14 8'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%237C6C84' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-position:left 16px center;background-size:13px 7px;background-repeat:no-repeat}
+.contact-form .button{width:100%;margin-top:7px;font-size:14.5px;min-height:53px}
+.form-note{min-height:22px;margin:0;color:var(--purple);font-size:11.5px;font-weight:600;text-align:center}
+.contact-alt{margin-top:14px;padding-top:20px;border-top:1px solid var(--line);text-align:center;
+  color:var(--muted);font-size:12px}
+.contact-alt a{display:inline-flex;align-items:center;gap:7px;margin-inline-start:6px;
+  unicode-bidi:isolate;color:var(--purple);font-weight:700;border-bottom:1px solid rgba(114,29,155,.3);transition:border-color .2s}
+.contact-alt a:hover{border-color:var(--purple)}
+.contact-alt a span{font-family:var(--num);font-size:14px}
+
+/* ===== FOOTER ===== */
+.footer{background:var(--ink);color:rgba(255,255,255,.62);padding:38px clamp(22px,7vw,108px);
+  display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap}
+.footer-brand{display:flex;align-items:center;gap:26px}
+.footer .wordmark img{width:158px}
+.footer p{margin:0;font-size:12px}
+.footer .footer-year{direction:ltr;font-family:var(--num);font-size:11px;
+  color:rgba(255,255,255,.45)}
+
+/* ===== REVEAL ===== */
+.js .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+.js .reveal.in{opacity:1;transform:none}
+
+/* ===== LATIN TYPOGRAPHY (EN / DARIJA) ===== */
+html[dir="ltr"] h1,html[dir="ltr"] h2{letter-spacing:-.03em;line-height:1.12}
+html[dir="ltr"] h1{max-width:720px}
+html[lang="en"] h1{font-size:clamp(40px,5.2vw,72px)}
+html[lang="ar-MA"] h1{font-size:clamp(38px,4.7vw,64px)}
+html[dir="ltr"] .statement-content h2{font-size:clamp(34px,4.4vw,60px)}
+html[dir="ltr"] .section-heading-row h2,
+html[dir="ltr"] .process-intro h2,
+html[dir="ltr"] .delivery h2,
+html[dir="ltr"] .center-head h2{font-size:clamp(32px,4.3vw,58px)}
+html[dir="ltr"] .offer-copy h2{font-size:clamp(32px,4.2vw,54px)}
+section[id]{scroll-margin-top:110px}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1080px){
+  .hero{grid-template-columns:1fr .82fr;gap:34px}
+  .hero-art{min-height:480px}
+  .hero-video-card{width:min(270px,76%)}
+  .hero-video{max-height:300px}
+  .floating-tag{font-size:9.5px;padding:7px 11px}
+}
+@media(max-width:940px){
+  .metrics{grid-template-columns:repeat(2,1fr);row-gap:25px}
+  .statement{grid-template-columns:1fr 20%}
+  .statement .section-kicker{grid-column:1/-1}
+  .statement-content{grid-column:1}
+  .statement-stamp{grid-column:2;grid-row:1/span 2;margin-top:10px}
+  .offer-card{grid-template-columns:1fr 1fr}
+  .offer-copy{grid-row:1/span 2}
+  .offer-price{align-self:center}
+  .offer-includes{align-self:start;padding-top:12px}
+  .guide-grid{gap:16px}
+  .guide-card{padding:36px 24px;min-height:290px}
+}
+@media(max-width:820px){
+  .hero{grid-template-columns:1fr;gap:26px;padding-top:52px;padding-bottom:64px;min-height:auto}
+  .hero-copy{order:1}
+  .hero-art{order:2;min-height:470px;margin-top:8px}
+  .hero-video-card{width:min(272px,66%)}
+  .hero-video{max-height:305px}
+  .process{grid-template-columns:1fr;gap:34px;padding-top:88px;padding-bottom:92px}
+  .process-list{padding-top:0}
+  .delivery-grid{grid-template-columns:1fr;gap:34px}
+  .guide-grid{grid-template-columns:1fr;max-width:560px}
+  .guide-card{min-height:0;padding:34px 28px}
+  .section-heading-row{display:block}
+  .section-heading-row p{margin-top:18px}
+  .offer-card{grid-template-columns:1fr;gap:30px;align-items:start}
+  .offer-copy{grid-row:auto}
+  .offer-price{align-self:center}
+  .offer-includes{padding-top:0}
+}
+@media(max-width:980px){
+  .navbar{gap:10px}
+  .navbar .wordmark img{width:100px}
+  .nav-links{gap:18px}
+  .nav-links a{font-size:12.5px}
+  .nav-cta{padding:0 14px;font-size:12px}
+}
+@media(max-width:820px){
+  .nav-links{display:none}
+  .navbar{grid-template-columns:auto auto 1fr auto}
+}
+@media(max-width:700px){
+  .hero h1{font-size:clamp(40px,11.5vw,62px)}
+  html[lang="en"] .hero h1{font-size:clamp(36px,9.6vw,56px)}
+  html[lang="ar-MA"] .hero h1{font-size:clamp(33px,8.9vw,52px)}
+  .hero-lead{font-size:14.5px}
+  .metrics{padding-top:28px;padding-bottom:32px}
+  .statement{padding-top:82px;padding-bottom:88px;display:block}
+  .statement-stamp{margin-top:26px}
+  .work{padding-bottom:88px}
+  .reels{grid-template-columns:1fr;gap:24px;max-width:520px}
+  .reel-col{flex-direction:row;gap:24px}
+  .reel-col .reel{flex:1 1 0;min-width:0}
+  .guidelines{padding-top:82px}
+  .offer{padding-top:76px;padding-bottom:82px}
+  .delivery{padding-bottom:88px}
+  .delivery-items{grid-template-columns:1fr;gap:20px}
+  .contact{padding:64px 18px 100px}
+  .contact .handler{margin-bottom:24px}
+  .contact-card{padding:26px 20px;border-radius:24px}
+  .footer{padding:32px 22px;gap:14px;flex-direction:column;align-items:flex-start}
+  .footer-brand{flex-direction:column;align-items:flex-start;gap:12px}
+  .footer .footer-year{margin:0}
+}
+@media(max-width:520px){
+  .navbar{width:96vw;gap:7px;padding:6px 8px}
+  .navbar .wordmark img{width:86px}
+  .lang-seg{padding:3px;gap:1px}
+  .lang-seg button{padding:5px 6px;font-size:10px}
+  .nav-cta{min-height:36px;padding:0 11px;font-size:11px}
+}
+@media(max-width:460px){
+  .hero-art{min-height:420px}
+  .hero-video-card{width:min(235px,72%)}
+  .hero-video{max-height:270px}
+  .tag-top{left:-4px}
+  .tag-bottom{right:-4px}
+  .floating-tag{font-size:9px;padding:6px 10px}
+  .statement-stamp{width:84px;height:84px}
+  .metrics strong{font-size:26px}
+  .contact-card{padding:24px 16px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="navbar">
+  <a class="wordmark" href="#top" aria-label="العودة إلى الصفحة الرئيسية" data-i18n-aria="aria.brandHome">
+    <img src="assets/logo-clean.webp" alt="Edit Community" width="108" height="44" />
+  </a>
+  <div class="lang-seg" role="group" aria-label="Language" data-i18n-aria="aria.lang">
+    <button type="button" data-lang="ar" class="active" aria-pressed="true">AR</button>
+    <button type="button" data-lang="darija" aria-pressed="false">DAR</button>
+    <button type="button" data-lang="en" aria-pressed="false">EN</button>
+  </div>
+  <nav class="nav-links" aria-label="التنقل الرئيسي" data-i18n-aria="aria.nav">
+    <a href="#work" data-i18n="nav.work">أعمالنا</a>
+    <a href="#process" data-i18n="nav.process">كيف نعمل</a>
+    <a href="#guidelines" data-i18n="nav.guidelines">الشروط</a>
+    <a href="#contact" data-i18n="nav.contact">تواصل</a>
+  </nav>
+  <a class="button button-primary nav-cta" href="#contact" data-i18n="nav.cta">ابدأ مشروعك</a>
+</header>
+
+<div class="site-shell">
+
+  <main>
+
+    <!-- ===== HERO (design from page 2 — re-themed) ===== -->
+    <section class="hero section-pad" id="top" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-dot"></span> <span data-i18n="hero.eyebrow">مونتاج محتوى عقاري بذكاء</span></div>
+        <h1 id="hero-title" data-i18n-html="hero.title">خلِّ مشروعك<br /><em>ينشاف، وينباع.</em></h1>
+        <p class="hero-lead" data-i18n="hero.lead">نصنع لك حضورًا بصريًا يليق بعقارك، ويحوّل كل فيديو إلى خطوة أقرب للثقة والبيع.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#contact"><span data-i18n="hero.cta">خلّنا نبدأ</span> <span class="arrow" aria-hidden="true">←</span></a>
+          <a class="text-link" href="#work"><span data-i18n="hero.secondary">شاهد طريقة شغلنا</span> <span class="arrow" aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-label="فيديو من أعمال Edit Community" data-i18n-aria="aria.art">
+        <div class="art-orbit orbit-one"></div>
+        <div class="art-orbit orbit-two"></div>
+        <div class="hero-video-card">
+          <div class="video-card-top"><span data-i18n="hero.cardIndex">EDIT COMMUNITY / 01</span><span class="video-live" style="animation:pulse 2.4s ease-in-out infinite" data-i18n="hero.live">● عرض الآن</span></div>
+          <div class="hero-video" data-youtube="bqGQXk0KZPA" role="button" tabindex="0" aria-label="تشغيل فيديو من أعمالنا" data-i18n-aria="aria.play">
+            <img class="thumb" src="assets/hero-poster.webp" alt="لمحة من فيديو Edit Community" data-i18n-alt="hero.img" />
+            <div class="play"><svg viewBox="0 0 68 48" aria-hidden="true"><path class="bg" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"/><path d="M45,24 27,14 27,34" fill="#fff"/></svg></div>
+          </div>
+          <div class="video-card-caption">
+            <span data-i18n-html="hero.caption">مشروع مختلف<br /><b>بداية القصة</b></span>
+            <span class="round-arrow" aria-hidden="true">↗</span>
+          </div>
+        </div>
+        <div class="floating-tag tag-top" data-i18n-html="hero.tagTop"><b>NEW</b> فيديو من أعمالنا</div>
+        <div class="floating-tag tag-bottom" data-i18n-html="hero.tagBottom">12 فيديو <span>كل شهر</span></div>
+      </div>
+    </section>
+
+    <!-- ===== METRICS ===== -->
+    <section class="metrics section-pad" aria-label="أرقام الخدمة" data-i18n-aria="aria.metrics">
+      <div class="metric"><strong>$999</strong><span data-i18n="metrics.price">باقة شهرية واضحة</span></div>
+      <div class="metric"><strong>12</strong><span data-i18n="metrics.videos">مقطعًا منتجًا كل شهر</span></div>
+      <div class="metric"><strong>72<span class="metric-unit" data-i18n="metrics.hours">ساعة</span></strong><span data-i18n="metrics.delivery">وقت تسليم الفيديو</span></div>
+      <div class="metric metric-note"><span class="metric-star" aria-hidden="true">✳</span><span data-i18n-html="metrics.note">استراتيجية. تنفيذ.<br />نتيجة قابلة للقياس.</span></div>
+    </section>
+
+    <!-- ===== STATEMENT ===== -->
+    <section class="statement section-pad" aria-labelledby="statement-title">
+      <div class="section-kicker" data-i18n="statement.kicker">الوعد</div>
+      <div class="statement-content">
+        <h2 id="statement-title" data-i18n-html="statement.title">لا نركّب فيديوهات فقط.<br /><span>نبني لك سببًا للشراء.</span></h2>
+        <p data-i18n="statement.body">نساعدك على جلب مبيعات لمشاريعك وبناء براند قوي ينافس السوق — عندما نلتزم بالعملية من أول مكالمة إلى آخر منشور.</p>
+      </div>
+      <div class="statement-stamp" aria-hidden="true"><span>E</span><small>EDIT<br />community</small></div>
+    </section>
+
+    <!-- ===== WORK (structure from page 1: 3 columns × 2 vertical reels) ===== -->
+    <section class="work section-pad" id="work" aria-labelledby="work-title">
+      <div class="section-heading-row">
+        <div>
+          <div class="section-kicker" data-i18n="work.kicker">مساحة أعمالك</div>
+          <h2 id="work-title" data-i18n-html="work.title">الفيديو القادم<br /><span>ممكن يكون هنا.</span></h2>
+        </div>
+      </div>
+
+      <div class="reels">
+        <div class="reel-col">
+          <article class="reel">
+            <div class="ratio tall" data-youtube="eoiDtYK9i2M" role="button" tabindex="0" aria-label="تشغيل الفيديو" data-i18n-aria="work.play">
+              <img class="thumb" src="assets/poster-1.webp" alt="" loading="lazy" />
+              <div class="play"><svg viewBox="0 0 68 48" aria-hidden="true"><path class="bg" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"/><path d="M45,24 27,14 27,34" fill="#fff"/></svg></div>
+            </div>
+          </article>
+          <article class="reel">
+            <div class="ratio tall" data-youtube="Ytu0_ETdSBk" role="button" tabindex="0" aria-label="تشغيل الفيديو" data-i18n-aria="work.play">
+              <img class="thumb" src="assets/poster-2.webp" alt="" loading="lazy" />
+              <div class="play"><svg viewBox="0 0 68 48" aria-hidden="true"><path class="bg" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"/><path d="M45,24 27,14 27,34" fill="#fff"/></svg></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="reel-col">
+          <article class="reel">
+            <div class="ratio tall" data-youtube="IOmmXnQNBY0" role="button" tabindex="0" aria-label="تشغيل الفيديو" data-i18n-aria="work.play">
+              <img class="thumb" src="assets/poster-3.webp" alt="" loading="lazy" />
+              <div class="play"><svg viewBox="0 0 68 48" aria-hidden="true"><path class="bg" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"/><path d="M45,24 27,14 27,34" fill="#fff"/></svg></div>
+            </div>
+          </article>
+          <article class="reel">
+            <div class="ratio tall" data-youtube="baKkfTYGkkI" role="button" tabindex="0" aria-label="تشغيل الفيديو" data-i18n-aria="work.play">
+              <img class="thumb" src="assets/poster-4.webp" alt="" loading="lazy" />
+              <div class="play"><svg viewBox="0 0 68 48" aria-hidden="true"><path class="bg" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"/><path d="M45,24 27,14 27,34" fill="#fff"/></svg></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="reel-col">
+          <article class="reel">
+            <div class="ratio tall" data-youtube="3fQCQ6n434E" role="button" tabindex="0" aria-label="تشغيل الفيديو" data-i18n-aria="work.play">
+              <img class="thumb" src="assets/poster-5.webp" alt="" loading="lazy" />
+              <div class="play"><svg viewBox="0 0 68 48" aria-hidden="true"><path class="bg" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"/><path d="M45,24 27,14 27,34" fill="#fff"/></svg></div>
+            </div>
+          </article>
+          <article class="reel">
+            <div class="ratio tall" data-youtube="bqGQXk0KZPA" role="button" tabindex="0" aria-label="تشغيل الفيديو" data-i18n-aria="work.play">
+              <img class="thumb" src="assets/poster-6.webp" alt="" loading="lazy" />
+              <div class="play"><svg viewBox="0 0 68 48" aria-hidden="true"><path class="bg" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"/><path d="M45,24 27,14 27,34" fill="#fff"/></svg></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROCESS (page 2) ===== -->
+    <section class="process section-pad" id="process" aria-labelledby="process-title">
+      <div class="process-intro">
+        <div class="section-kicker" data-i18n="process.kicker">العملية</div>
+        <h2 id="process-title" data-i18n-html="process.title">شغل مرتب.<br /><span>نتيجة أوضح.</span></h2>
+        <p data-i18n="process.body">كل مرحلة لها هدف، وكل موعد له معنى. نخلّي صناعة المحتوى أسهل عليك وأكثر اتساقًا لجمهورك.</p>
+        <a class="arrow-link" href="#contact"><span data-i18n="process.link">اسألنا عن التفاصيل</span> <span class="arrow" aria-hidden="true">↗</span></a>
+      </div>
+      <div class="process-list">
+        <article class="process-step"><span class="step-number">01</span><div><h3 data-i18n="process.s1.title">نبدأ بمكالمة</h3><p data-i18n="process.s1.body">نفهم وضعيتك العقارية، مشروعك، والسوق الذي تريد أن تنافس فيه.</p></div><span class="step-icon" aria-hidden="true">⌁</span></article>
+        <article class="process-step"><span class="step-number">02</span><div><h3 data-i18n="process.s2.title">نبني الاستراتيجية</h3><p data-i18n="process.s2.body">نضع لك استراتيجية محتوى شهرية، ونرسلها في اليوم التالي للمكالمة.</p></div><span class="step-icon" aria-hidden="true">✳</span></article>
+        <article class="process-step"><span class="step-number">03</span><div><h3 data-i18n="process.s3.title">نصوّر بذكاء</h3><p data-i18n="process.s3.body">نعطيك طرق التصوير ونساعدك فيها حتى يصلنا خام مناسب للمونتاج.</p></div><span class="step-icon" aria-hidden="true">◌</span></article>
+        <article class="process-step"><span class="step-number">04</span><div><h3 data-i18n="process.s4.title">نمنتج وننشر</h3><p data-i18n="process.s4.body">نستلم الفيديوهات، نسلّمها خلال 72 ساعة، وننشرها في مواعيدها المحددة.</p></div><span class="step-icon" aria-hidden="true">↗</span></article>
+      </div>
+    </section>
+
+    <!-- ===== WORK GUIDELINES (structure + content from page 1) ===== -->
+    <section class="guidelines section-pad" id="guidelines" aria-labelledby="guide-title">
+      <div class="center-head reveal">
+        <div class="handler"><span class="l"></span><span data-i18n="guidelines.kicker">الشروط</span><span class="l"></span></div>
+        <h2 id="guide-title" data-i18n="guidelines.title">معايير العمل</h2>
+        <p data-i18n="guidelines.body">نعمل مع عملاء مختارين فقط، حسب نوع المحتوى ومدى توافقه مع قيمنا ومعايير العمل لدينا.</p>
+      </div>
+      <div class="guide-grid">
+        <article class="guide-card reveal">
+          <span class="guide-chip" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M9.5 18V6.4l9.5-1.9v11.6"/><circle cx="7" cy="18" r="2.5"/><circle cx="16.5" cy="16.1" r="2.5"/><path d="M4 4l16 16"/></svg>
+          </span>
+          <h3 data-i18n="guidelines.c1.title">بدون موسيقى</h3>
+          <p data-i18n="guidelines.c1.body">لا نستخدم الموسيقى في المونتاج. نعتمد على المؤثرات الصوتية، وطريقة عرض بصرية احترافية.</p>
+        </article>
+        <article class="guide-card reveal">
+          <span class="guide-chip" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="14" rx="2.5"/><circle cx="9" cy="10.2" r="1.7"/><path d="M3.8 16.5l4.4-3.8 3.4 2.9 3.9-3.4 4.7 4.1"/><path d="M4 4l16 16"/></svg>
+          </span>
+          <h3 data-i18n="guidelines.c2.title">بدون صور للنساء</h3>
+          <p data-i18n="guidelines.c2.body">لا نضع صورًا أو مشاهد للنساء داخل الفيديوهات التي ننتجها، كما أننا لا نعمل مع النساء.</p>
+        </article>
+        <article class="guide-card reveal">
+          <span class="guide-chip" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 3.4l7 2.6v5.1c0 4.4-2.9 7.5-7 8.9-4.1-1.4-7-4.5-7-8.9V6Z"/><path d="M8.8 12l2.3 2.3 4.4-4.6"/></svg>
+          </span>
+          <h3 data-i18n="guidelines.c3.title">نختار المحتوى بعناية</h3>
+          <p data-i18n="guidelines.c3.body">لا نقبل كل المشاريع. نراجع نوع المحتوى أولًا للتأكد من توافقه مع قيمنا، معاييرنا، وطريقة عملنا.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== OFFER ===== -->
+    <section class="offer section-pad" id="offer" aria-labelledby="offer-title">
+      <div class="offer-card">
+        <div class="offer-copy">
+          <div class="offer-topline"><span class="section-kicker" data-i18n="offer.kicker">الباقة الشهرية</span><span class="premium-badge">PREMIUM</span></div>
+          <h2 id="offer-title" data-i18n-html="offer.title">خلّ حضورك<br /><em>يشتغل عنك.</em></h2>
+          <p data-i18n="offer.body">باقة شهرية متكاملة للوسيط أو المالك الذي يريد أن يتوقف عن النشر العشوائي ويبدأ ببناء براند حقيقي.</p>
+          <a class="button button-light" href="#contact"><span data-i18n="offer.cta">أريد هذه الباقة</span> <span class="arrow" aria-hidden="true">←</span></a>
+        </div>
+        <div class="offer-price"><div class="price-row"><span class="price-currency">$</span><span class="price-number">999</span></div><span class="price-period" data-i18n="offer.period">/ شهريًا</span></div>
+        <div class="offer-includes">
+          <div><span class="check">✓</span><span data-i18n="offer.i1">12 مقطعًا منتجًا</span></div>
+          <div><span class="check">✓</span><span data-i18n="offer.i2">استراتيجية محتوى شهرية</span></div>
+          <div><span class="check">✓</span><span data-i18n="offer.i3">تسليم خلال 72 ساعة</span></div>
+          <div><span class="check">✓</span><span data-i18n="offer.i4">اجتماع متابعة كل أسبوعين</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== DELIVERY ===== -->
+    <section class="delivery section-pad" aria-labelledby="delivery-title">
+      <div class="section-kicker" data-i18n="delivery.kicker">التسليم والمتابعة</div>
+      <div class="delivery-grid">
+        <h2 id="delivery-title" data-i18n-html="delivery.title">واضح من البداية،<br /><span>مرن أثناء الطريق.</span></h2>
+        <div class="delivery-items">
+          <div><span class="delivery-icon" aria-hidden="true">◷</span><div><strong data-i18n="delivery.i1.title">الاستراتيجية</strong><p data-i18n="delivery.i1.body">تصل إليك بعد يوم واحد من المكالمة.</p></div></div>
+          <div><span class="delivery-icon" aria-hidden="true">↯</span><div><strong data-i18n="delivery.i2.title">الفيديوهات</strong><p data-i18n="delivery.i2.body">نُسلّم كل فيديو خلال 72 ساعة.</p></div></div>
+          <div><span class="delivery-icon" aria-hidden="true">◌</span><div><strong data-i18n="delivery.i3.title">المتابعة</strong><p data-i18n="delivery.i3.body">اجتماع كل أسبوعين لنراجع ونطوّر.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT (structure from page 1 — centered form card) ===== -->
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="handler"><span class="l"></span><span data-i18n="contact.kicker">ابدأ الآن</span><span class="l"></span></div>
+      <div class="contact-card reveal">
+        <div class="form-head">
+          <span class="form-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M9 4H7a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M8.5 11.5h7M8.5 15h5"/></svg>
+          </span>
+          <h3 id="contact-title" data-i18n="contact.title">ساعدنا على جعل المكالمة مفيدة لك</h3>
+          <p data-i18n="contact.body">أجب عن أسئلة سريعة تساعدنا على فهم مشروعك ووضعك بشكل أفضل.</p>
+          <span class="form-time"><i aria-hidden="true"></i> <span data-i18n="contact.time">أقل من 5 دقائق</span></span>
+        </div>
+
+        <form class="contact-form" id="contact-form">
+          <label><span data-i18n="form.name">الاسم الكامل</span>
+            <input type="text" name="name" placeholder="كيف نناديك؟" data-i18n-placeholder="form.namePh" autocomplete="name" required />
+          </label>
+          <label><span data-i18n="form.email">البريد الإلكتروني</span>
+            <input type="email" name="email" placeholder="you@example.com" autocomplete="email" required />
+          </label>
+          <label><span data-i18n="form.project">نوع المشروع</span>
+            <select name="project" required>
+              <option value="" selected disabled data-i18n="form.projectPh">اختر نوع المشروع</option>
+              <option value="مشروع عقاري" data-i18n="form.opt1">مشروع عقاري</option>
+              <option value="وساطة عقارية" data-i18n="form.opt2">وساطة عقارية</option>
+              <option value="شخصي / آخر" data-i18n="form.opt3">شخصي / آخر</option>
+            </select>
+          </label>
+          <button class="button button-primary" type="submit"><span data-i18n="form.submit">أرسل التفاصيل</span> <span class="arrow" aria-hidden="true">←</span></button>
+          <p class="form-note" id="form-note" role="status"></p>
+        </form>
+
+        <div class="contact-alt">
+          <span data-i18n="contact.alt">أو تواصل مباشرة عبر واتساب</span>
+          <a href="https://wa.me/212679459929?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D9%85%D8%B9%20Edit%20Community" data-wa-direct target="_blank" rel="noreferrer"><span dir="ltr">+212 679 459 929</span> <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-brand">
+      <a class="wordmark" href="#top" aria-label="العودة إلى الأعلى" data-i18n-aria="aria.footerHome">
+        <img src="assets/logo-glow.webp" alt="Edit Community" width="158" height="80" loading="lazy" />
+      </a>
+      <p data-i18n="footer.tagline">محتوى عقاري يبيع، بهدوء.</p>
+    </div>
+    <span class="footer-year">© <span id="year"></span> Edit Community</span>
+  </footer>
+
+</div>
+
+<script>
+/* =========================================================
+   EDIT COMMUNITY — language switching (AR / DAR / EN)
+   ========================================================= */
+var I18N = {
+  ar: {
+    'meta.title': 'Edit Community — محتوى عقاري يبيع',
+    'meta.description': 'إديت كوميونيتي — مونتاج محتوى عقاري يساعد الوسطاء والملاك على بناء براند قوي وجذب مبيعات أكثر.',
+
+    'aria.lang': 'اختيار اللغة',
+    'aria.brandHome': 'العودة إلى الصفحة الرئيسية',
+    'aria.nav': 'التنقل الرئيسي',
+    'aria.metrics': 'أرقام الخدمة',
+    'aria.art': 'فيديو من أعمال Edit Community',
+    'aria.play': 'تشغيل فيديو من أعمالنا',
+    'aria.footerHome': 'العودة إلى الأعلى',
+    'video.title': 'فيديو Edit Community',
+    'hero.img': 'لمحة من فيديو Edit Community',
+
+    'nav.work': 'أعمالنا',
+    'nav.process': 'كيف نعمل',
+    'nav.guidelines': 'الشروط',
+    'nav.contact': 'تواصل',
+    'nav.cta': 'ابدأ مشروعك',
+
+    'hero.eyebrow': 'مونتاج محتوى عقاري بذكاء',
+    'hero.title': 'خلِّ مشروعك<br /><em>ينشاف، وينباع.</em>',
+    'hero.lead': 'نصنع لك حضورًا بصريًا يليق بعقارك، ويحوّل كل فيديو إلى خطوة أقرب للثقة والبيع.',
+    'hero.cta': 'خلّنا نبدأ',
+    'hero.secondary': 'شاهد طريقة شغلنا',
+    'hero.cardIndex': 'EDIT COMMUNITY / 01',
+    'hero.live': '● عرض الآن',
+    'hero.caption': 'مشروع مختلف<br /><b>بداية القصة</b>',
+    'hero.tagTop': '<b>NEW</b> فيديو من أعمالنا',
+    'hero.tagBottom': '12 فيديو <span>كل شهر</span>',
+
+    'metrics.price': 'باقة شهرية واضحة',
+    'metrics.videos': 'مقطعًا منتجًا كل شهر',
+    'metrics.hours': 'ساعة',
+    'metrics.delivery': 'وقت تسليم الفيديو',
+    'metrics.note': 'استراتيجية. تنفيذ.<br />نتيجة قابلة للقياس.',
+
+    'statement.kicker': 'الوعد',
+    'statement.title': 'لا نركّب فيديوهات فقط.<br /><span>نبني لك سببًا للشراء.</span>',
+    'statement.body': 'نساعدك على جلب مبيعات لمشاريعك وبناء براند قوي ينافس السوق — عندما نلتزم بالعملية من أول مكالمة إلى آخر منشور.',
+
+    'work.kicker': 'مساحة أعمالك',
+    'work.title': 'الفيديو القادم<br /><span>ممكن يكون هنا.</span>',
+    'work.play': 'تشغيل الفيديو',
+
+    'process.kicker': 'العملية',
+    'process.title': 'شغل مرتب.<br /><span>نتيجة أوضح.</span>',
+    'process.body': 'كل مرحلة لها هدف، وكل موعد له معنى. نخلّي صناعة المحتوى أسهل عليك وأكثر اتساقًا لجمهورك.',
+    'process.link': 'اسألنا عن التفاصيل',
+    'process.s1.title': 'نبدأ بمكالمة',
+    'process.s1.body': 'نفهم وضعيتك العقارية، مشروعك، والسوق الذي تريد أن تنافس فيه.',
+    'process.s2.title': 'نبني الاستراتيجية',
+    'process.s2.body': 'نضع لك استراتيجية محتوى شهرية، ونرسلها في اليوم التالي للمكالمة.',
+    'process.s3.title': 'نصوّر بذكاء',
+    'process.s3.body': 'نعطيك طرق التصوير ونساعدك فيها حتى يصلنا خام مناسب للمونتاج.',
+    'process.s4.title': 'نمنتج وننشر',
+    'process.s4.body': 'نستلم الفيديوهات، نسلّمها خلال 72 ساعة، وننشرها في مواعيدها المحددة.',
+
+    'guidelines.kicker': 'الشروط',
+    'guidelines.title': 'معايير العمل',
+    'guidelines.body': 'نعمل مع عملاء مختارين فقط، حسب نوع المحتوى ومدى توافقه مع قيمنا ومعايير العمل لدينا.',
+    'guidelines.c1.title': 'بدون موسيقى',
+    'guidelines.c1.body': 'لا نستخدم الموسيقى في المونتاج. نعتمد على المؤثرات الصوتية، وطريقة عرض بصرية احترافية.',
+    'guidelines.c2.title': 'بدون صور للنساء',
+    'guidelines.c2.body': 'لا نضع صورًا أو مشاهد للنساء داخل الفيديوهات التي ننتجها، كما أننا لا نعمل مع النساء.',
+    'guidelines.c3.title': 'نختار المحتوى بعناية',
+    'guidelines.c3.body': 'لا نقبل كل المشاريع. نراجع نوع المحتوى أولًا للتأكد من توافقه مع قيمنا، معاييرنا، وطريقة عملنا.',
+
+    'offer.kicker': 'الباقة الشهرية',
+    'offer.title': 'خلّ حضورك<br /><em>يشتغل عنك.</em>',
+    'offer.body': 'باقة شهرية متكاملة للوسيط أو المالك الذي يريد أن يتوقف عن النشر العشوائي ويبدأ ببناء براند حقيقي.',
+    'offer.cta': 'أريد هذه الباقة',
+    'offer.period': '/ شهريًا',
+    'offer.i1': '12 مقطعًا منتجًا',
+    'offer.i2': 'استراتيجية محتوى شهرية',
+    'offer.i3': 'تسليم خلال 72 ساعة',
+    'offer.i4': 'اجتماع متابعة كل أسبوعين',
+
+    'delivery.kicker': 'التسليم والمتابعة',
+    'delivery.title': 'واضح من البداية،<br /><span>مرن أثناء الطريق.</span>',
+    'delivery.i1.title': 'الاستراتيجية',
+    'delivery.i1.body': 'تصل إليك بعد يوم واحد من المكالمة.',
+    'delivery.i2.title': 'الفيديوهات',
+    'delivery.i2.body': 'نُسلّم كل فيديو خلال 72 ساعة.',
+    'delivery.i3.title': 'المتابعة',
+    'delivery.i3.body': 'اجتماع كل أسبوعين لنراجع ونطوّر.',
+
+    'contact.kicker': 'ابدأ الآن',
+    'contact.title': 'ساعدنا على جعل المكالمة مفيدة لك',
+    'contact.body': 'أجب عن أسئلة سريعة تساعدنا على فهم مشروعك ووضعك بشكل أفضل.',
+    'contact.time': 'أقل من 5 دقائق',
+    'contact.alt': 'أو تواصل مباشرة عبر واتساب',
+
+    'form.name': 'الاسم الكامل',
+    'form.namePh': 'كيف نناديك؟',
+    'form.email': 'البريد الإلكتروني',
+    'form.project': 'نوع المشروع',
+    'form.projectPh': 'اختر نوع المشروع',
+    'form.opt1': 'مشروع عقاري',
+    'form.opt2': 'وساطة عقارية',
+    'form.opt3': 'شخصي / آخر',
+    'form.submit': 'أرسل التفاصيل',
+    'form.sending': 'جاري فتح واتساب لإرسال التفاصيل…',
+
+    'footer.tagline': 'محتوى عقاري يبيع، بهدوء.',
+
+    'wa.direct': 'السلام عليكم، أريد التواصل مع Edit Community',
+    'wa.greeting': 'السلام عليكم، أريد التواصل مع Edit Community.',
+    'wa.name': 'الاسم',
+    'wa.email': 'البريد',
+    'wa.project': 'نوع المشروع'
+  },
+
+  darija: {
+    'meta.title': 'Edit Community — Content 3a9ari kaybi3',
+    'meta.description': 'Edit Community — montage content 3a9ari kay3awen l wosata w l malk bach ybniw brand 9wi w yjibou mbi3at kter.',
+
+    'aria.lang': 'Khtar l logha',
+    'aria.brandHome': 'Rje3 l sfa7a ra2issiya',
+    'aria.nav': 'Tanawol ra2issi',
+    'aria.metrics': 'Ar9am l khedma',
+    'aria.art': 'Video men a3mal Edit Community',
+    'aria.play': 'Shaghel video men a3malna',
+    'aria.footerHome': 'Rje3 l fo9',
+    'video.title': 'Video Edit Community',
+    'hero.img': 'Lamha men video Edit Community',
+
+    'nav.work': 'Khedmna',
+    'nav.process': 'Kifash nkhdmo',
+    'nav.guidelines': 'Shorout',
+    'nav.contact': 'Twasel',
+    'nav.cta': 'Bda project dyalek',
+
+    'hero.eyebrow': 'Montage content 3a9ari b dka2',
+    'hero.title': 'Khelli project dyalek<br /><em>ytshaf w ytba3.</em>',
+    'hero.lead': 'Kansawbo lik 7odor basari yliq b 3a9arek, w y7awwel kol video l khatwa 9riba mn tiqa w l bi3.',
+    'hero.cta': 'Yallah nbdawo',
+    'hero.secondary': 'Chouf kifash nkhdmo',
+    'hero.cardIndex': 'EDIT COMMUNITY / 01',
+    'hero.live': '● Daba kayt3red',
+    'hero.caption': 'Project mokhtalef<br /><b>Bdaya l 9issa</b>',
+    'hero.tagTop': '<b>NEW</b> video men a3malna',
+    'hero.tagBottom': '12 video <span>kol chhar</span>',
+
+    'metrics.price': 'Baka chhariya wad7a',
+    'metrics.videos': 'Video mntej kol chhar',
+    'metrics.hours': 'sa3a',
+    'metrics.delivery': 'W9t taslim l video',
+    'metrics.note': 'Strategie. Tanfid.<br />Natija tqis.',
+
+    'statement.kicker': 'L wa3d',
+    'statement.title': 'Ma kanrkboch ghir videos.<br /><span>Kanbniw lik sabab bach tbi3.</span>',
+    'statement.body': 'Kan3awnouk tjib mbi3at l projects dyalek w tbni brand 9wi kaynafes sou9 — melli kaneltzmo b l process men awal call 7tal akher post.',
+
+    'work.kicker': 'Blast l khedma dyalek',
+    'work.title': 'L video jay<br /><span>ymken ykon hna.</span>',
+    'work.play': 'Shaghel l video',
+
+    'process.kicker': 'L process',
+    'process.title': 'Khedma mnta7ma.<br /><span>Natija owda7.</span>',
+    'process.body': 'Kol mar7la 3ndha hadaf, w kol maw3id 3ndo ma3na. Kankhelliw sona3a l content sahla 3lik w aktar mstqima l jomhour dyalek.',
+    'process.link': 'Sawelna 3la tafassil',
+    'process.s1.title': 'Kanbdaw b call',
+    'process.s1.body': 'Kanfahmo l wad3iya l 3a9ariya dyalek, project dyalek, w sou9 li bghiti tnafes fih.',
+    'process.s2.title': 'Kanbniw l strategie',
+    'process.s2.body': 'Kanwajdo lik strategie content chhariya, w kansiftoha lik l ghedda men l call.',
+    'process.s3.title': 'Kansawbo b dka2',
+    'process.s3.body': 'Kan3tik toroq tswir w kan3awnouk fiha 7tal ywselna raw mnasib l montage.',
+    'process.s4.title': 'Kanmontjiw w kanpublishiw',
+    'process.s4.body': 'Kanstelmo l videos, kansellemoha f 72 sa3a, w kanpublishiwha f mawa3idha.',
+
+    'guidelines.kicker': 'Shorout',
+    'guidelines.title': 'Ma3ayir l khedma',
+    'guidelines.body': 'Kankhdmo ghir m3a clients mkhtarin, 7sab no3 l content w 9adach kaywafeq 9iyamna w ma3ayir l khedma dyalna.',
+    'guidelines.c1.title': 'Bla mousiqa',
+    'guidelines.c1.body': 'Makanst7mloch mousiqa f montage. Kanna3tmo 3la sound effects, w tariqa basariya i7tirafiya.',
+    'guidelines.c2.title': 'Bla tsawer l nsa',
+    'guidelines.c2.body': 'Makan7ttoch tsawer wla machahid l nsa f videos li kanntejohom, w makanekhdmoch m3a nsa.',
+    'guidelines.c3.title': 'Kankhtaro l content b 3inaya',
+    'guidelines.c3.body': 'Makan9bloch kol projet. Kanchaoufo no3 l content lwel bach nt2akkdo bli kaywafeq 9iyamna, ma3ayirna, w tari9a l khedma dyalna.',
+
+    'offer.kicker': 'L baka chhariya',
+    'offer.title': 'Khelli 7odork<br /><em>ykhdem 3lik.</em>',
+    'offer.body': 'Baka chhariya kamla l l wasit wla l malk li bgha y7bes nashr 3achwa2i w ybda ybni brand 7a9i9i.',
+    'offer.cta': 'Bghit had l baka',
+    'offer.period': '/ f chhar',
+    'offer.i1': '12 video mntej',
+    'offer.i2': 'Strategie content chhariya',
+    'offer.i3': 'Taslim f 72 sa3a',
+    'offer.i4': 'Meeting kol 15 yom',
+
+    'delivery.kicker': 'Taslim w motaba3a',
+    'delivery.title': 'Wadeh men l bdaya,<br /><span>mreen f l tri9.</span>',
+    'delivery.i1.title': 'L strategie',
+    'delivery.i1.body': 'Katwslek mora youm wa7ed men l call.',
+    'delivery.i2.title': 'L videos',
+    'delivery.i2.body': 'Kansellemo kol video f 72 sa3a.',
+    'delivery.i3.title': 'L motaba3a',
+    'delivery.i3.body': 'Meeting kol 15 yom bach nchaoufo w ntawro.',
+
+    'contact.kicker': 'Bda daba',
+    'contact.title': '3awna nkhelliw l call mfida lik',
+    'contact.body': 'Jaweb 3la as2ila sri3a kat3awna nfahmo project dyalek w wad3iytek mzyan.',
+    'contact.time': '9al men 5 daqayq',
+    'contact.alt': 'Wla twasel nichan 3la WhatsApp',
+
+    'form.name': 'Smiya kamla',
+    'form.namePh': 'Kifash n3ayto lik?',
+    'form.email': 'Email',
+    'form.project': 'No3 l project',
+    'form.projectPh': 'Khtar no3 l project',
+    'form.opt1': 'Project 3a9ari',
+    'form.opt2': 'Wesata 3a9ariya',
+    'form.opt3': 'Chakhsi / akher',
+    'form.submit': 'Sift tafassil',
+    'form.sending': 'Kanft7o WhatsApp bach nsifto tafassil…',
+
+    'footer.tagline': 'Content 3a9ari kaybi3, b hdo2.',
+
+    'wa.direct': 'Salam, bghit ntwassel m3a Edit Community',
+    'wa.greeting': 'Salam, bghit ntwassel m3a Edit Community.',
+    'wa.name': 'Smiya',
+    'wa.email': 'Email',
+    'wa.project': 'No3 l project'
+  },
+
+  en: {
+    'meta.title': 'Edit Community — Real estate content that sells',
+    'meta.description': 'Edit Community — real estate content editing that helps agents and owners build a strong brand and win more sales.',
+
+    'aria.lang': 'Choose language',
+    'aria.brandHome': 'Back to top',
+    'aria.nav': 'Main navigation',
+    'aria.metrics': 'Service numbers',
+    'aria.art': 'Video from Edit Community’s work',
+    'aria.play': 'Play a video from our work',
+    'aria.footerHome': 'Back to top',
+    'video.title': 'Edit Community video',
+    'hero.img': 'A glimpse from an Edit Community video',
+
+    'nav.work': 'Work',
+    'nav.process': 'Process',
+    'nav.guidelines': 'Guidelines',
+    'nav.contact': 'Contact',
+    'nav.cta': 'Start your project',
+
+    'hero.eyebrow': 'Smart real estate content editing',
+    'hero.title': 'Make your project<br /><em>seen — and sold.</em>',
+    'hero.lead': 'We build a visual presence worthy of your property and turn every video into a step closer to trust — and to the sale.',
+    'hero.cta': 'Let’s start',
+    'hero.secondary': 'See how we work',
+    'hero.cardIndex': 'EDIT COMMUNITY / 01',
+    'hero.live': '● Now playing',
+    'hero.caption': 'A different project<br /><b>where it begins</b>',
+    'hero.tagTop': '<b>NEW</b> video from our work',
+    'hero.tagBottom': '12 videos <span>every month</span>',
+
+    'metrics.price': 'Clear monthly package',
+    'metrics.videos': 'edited videos every month',
+    'metrics.hours': 'hrs',
+    'metrics.delivery': 'video delivery time',
+    'metrics.note': 'Strategy. Execution.<br />Measurable results.',
+
+    'statement.kicker': 'The promise',
+    'statement.title': 'We don’t just edit videos.<br /><span>We build a reason to buy.</span>',
+    'statement.body': 'We help you bring sales to your projects and build a strong brand that competes in the market — when we commit to the process from the first call to the last post.',
+
+    'work.kicker': 'Your work space',
+    'work.title': 'Your next video<br /><span>could be right here.</span>',
+    'work.play': 'Play video',
+
+    'process.kicker': 'The process',
+    'process.title': 'Organized work.<br /><span>Clearer results.</span>',
+    'process.body': 'Every stage has a purpose, and every deadline means something. We make content creation easier for you — and more consistent for your audience.',
+    'process.link': 'Ask us for details',
+    'process.s1.title': 'We start with a call',
+    'process.s1.body': 'We learn about your property, your project, and the market you want to compete in.',
+    'process.s2.title': 'We build the strategy',
+    'process.s2.body': 'We prepare a monthly content strategy and send it to you the day after the call.',
+    'process.s3.title': 'We shoot smart',
+    'process.s3.body': 'We give you filming methods and help you with them until we get footage that’s right for editing.',
+    'process.s4.title': 'We edit and publish',
+    'process.s4.body': 'We receive the videos, deliver within 72 hours, and publish them on schedule.',
+
+    'guidelines.kicker': 'Guidelines',
+    'guidelines.title': 'Work standards',
+    'guidelines.body': 'We only work with selected clients, based on the type of content and how well it fits our values and standards.',
+    'guidelines.c1.title': 'No music',
+    'guidelines.c1.body': 'We don’t use music in editing. We rely on sound effects and a professional visual approach.',
+    'guidelines.c2.title': 'No images of women',
+    'guidelines.c2.body': 'We don’t include images or footage of women in the videos we produce, and we don’t work with women.',
+    'guidelines.c3.title': 'We choose content carefully',
+    'guidelines.c3.body': 'We don’t accept every project. We review the content type first to make sure it fits our values, standards, and way of working.',
+
+    'offer.kicker': 'Monthly package',
+    'offer.title': 'Let your presence<br /><em>work for you.</em>',
+    'offer.body': 'A complete monthly package for agents or owners who want to stop posting randomly and start building a real brand.',
+    'offer.cta': 'I want this package',
+    'offer.period': '/ month',
+    'offer.i1': '12 edited videos',
+    'offer.i2': 'Monthly content strategy',
+    'offer.i3': 'Delivery within 72 hours',
+    'offer.i4': 'Biweekly check-in call',
+
+    'delivery.kicker': 'Delivery & follow-up',
+    'delivery.title': 'Clear from day one,<br /><span>flexible on the way.</span>',
+    'delivery.i1.title': 'Strategy',
+    'delivery.i1.body': 'It reaches you one day after the call.',
+    'delivery.i2.title': 'Videos',
+    'delivery.i2.body': 'We deliver each video within 72 hours.',
+    'delivery.i3.title': 'Follow-up',
+    'delivery.i3.body': 'A call every two weeks to review and improve.',
+
+    'contact.kicker': 'Start now',
+    'contact.title': 'Help us make the call worth your time',
+    'contact.body': 'Answer a few quick questions so we can understand your project and situation better.',
+    'contact.time': 'Under 5 minutes',
+    'contact.alt': 'Or message us directly on WhatsApp',
+
+    'form.name': 'Full name',
+    'form.namePh': 'What should we call you?',
+    'form.email': 'Email address',
+    'form.project': 'Project type',
+    'form.projectPh': 'Choose a project type',
+    'form.opt1': 'Real estate project',
+    'form.opt2': 'Real estate brokerage',
+    'form.opt3': 'Personal / other',
+    'form.submit': 'Send details',
+    'form.sending': 'Opening WhatsApp to send your details…',
+
+    'footer.tagline': 'Real estate content that sells, quietly.',
+
+    'wa.direct': 'Hello, I’d like to get in touch with Edit Community',
+    'wa.greeting': 'Hello, I’d like to get in touch with Edit Community.',
+    'wa.name': 'Name',
+    'wa.email': 'Email',
+    'wa.project': 'Project type'
+  }
+};
+
+var WA_NUMBER = '212679459929';
+var currentLang = 'ar';
+
+function t(key){
+  return (I18N[currentLang] && I18N[currentLang][key]) || I18N.ar[key] || '';
+}
+
+function setMeta(){
+  document.title = t('meta.title');
+  var desc = document.querySelector('meta[name="description"]');
+  if(desc) desc.setAttribute('content', t('meta.description'));
+}
+
+function setDirectLink(){
+  var link = document.querySelector('[data-wa-direct]');
+  if(link) link.href = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(t('wa.direct'));
+}
+
+function applyLang(lang, persist){
+  if(!I18N[lang]) lang = 'ar';
+  currentLang = lang;
+
+  var root = document.documentElement;
+  var rtl = lang === 'ar';
+  root.lang = lang === 'en' ? 'en' : (lang === 'darija' ? 'ar-MA' : 'ar');
+  root.dir = rtl ? 'rtl' : 'ltr';
+
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    el.textContent = t(el.getAttribute('data-i18n'));
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(function(el){
+    el.innerHTML = t(el.getAttribute('data-i18n-html'));
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el){
+    el.setAttribute('placeholder', t(el.getAttribute('data-i18n-placeholder')));
+  });
+  document.querySelectorAll('[data-i18n-aria]').forEach(function(el){
+    el.setAttribute('aria-label', t(el.getAttribute('data-i18n-aria')));
+  });
+  document.querySelectorAll('[data-i18n-alt]').forEach(function(el){
+    el.setAttribute('alt', t(el.getAttribute('data-i18n-alt')));
+  });
+
+  document.querySelectorAll('.lang-seg button').forEach(function(btn){
+    var active = btn.getAttribute('data-lang') === lang;
+    btn.classList.toggle('active', active);
+    btn.setAttribute('aria-pressed', String(active));
+  });
+
+  setMeta();
+  setDirectLink();
+
+  if(persist){
+    try { localStorage.setItem('ec-lang', lang); } catch(e){}
+  }
+}
+
+/* ===== Click-to-load YouTube (keeps the page light) ===== */
+document.querySelectorAll('[data-youtube]').forEach(function(box){
+  function play(){
+    var id = box.getAttribute('data-youtube');
+    if(!id || box.querySelector('iframe')) return;
+    box.innerHTML = '<iframe src="https://www.youtube.com/embed/' + encodeURIComponent(id) +
+      '?rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&autoplay=1" ' +
+      'title="' + t('video.title') + '" allow="accelerometer;autoplay;encrypted-media;gyroscope;picture-in-picture;fullscreen" ' +
+      'allowfullscreen></iframe>';
+  }
+  box.addEventListener('click', play);
+  box.addEventListener('keydown', function(e){
+    if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); play(); }
+  });
+});
+
+/* ===== Contact form → WhatsApp ===== */
+var contactForm = document.querySelector('#contact-form');
+var formNote = document.querySelector('#form-note');
+contactForm?.addEventListener('submit', function(event){
+  event.preventDefault();
+  var data = new FormData(contactForm);
+  var select = contactForm.querySelector('select[name="project"]');
+  var project = select && select.selectedOptions[0] ? select.selectedOptions[0].textContent.trim() : '';
+  var message = [
+    t('wa.greeting'),
+    t('wa.name') + ': ' + (data.get('name') || ''),
+    t('wa.email') + ': ' + (data.get('email') || ''),
+    t('wa.project') + ': ' + project
+  ].join('\n');
+  formNote.textContent = t('form.sending');
+  window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(message), '_blank', 'noopener,noreferrer');
+});
+
+/* ===== Language buttons ===== */
+document.querySelectorAll('.lang-seg button').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    applyLang(btn.getAttribute('data-lang'), true);
+  });
+});
+
+/* ===== Year + reveal ===== */
+document.querySelector('#year').textContent = new Date().getFullYear();
+
+if('IntersectionObserver' in window){
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold:.12, rootMargin:'0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+} else {
+  document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+}
+
+/* ===== Restore saved language ===== */
+var savedLang = 'ar';
+try { savedLang = localStorage.getItem('ec-lang') || 'ar'; } catch(e){}
+applyLang(savedLang, false);
+</script>
+</body>
+</html>
