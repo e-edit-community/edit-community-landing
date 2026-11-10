@@ -44,7 +44,7 @@ try{var savedEarly=localStorage.getItem('ec-lang');
   --num:"Manrope","IBM Plex Sans Arabic",sans-serif;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 button,input,select{font:inherit}
@@ -81,8 +81,35 @@ html[dir="rtl"] .nav-links{direction:rtl}
   background:var(--purple);transform:scaleX(0);transform-origin:center;transition:transform .25s ease}
 .nav-links a:hover{color:var(--purple)}
 .nav-links a:hover::after{transform:scaleX(1)}
+.nav-links a.active{color:var(--purple)}
+.nav-links a.active::after{transform:scaleX(1)}
 .nav-cta{min-height:46px;padding:0 22px;border-radius:999px !important;font-size:12.5px;gap:8px;white-space:nowrap}
 .nav-cta:hover{transform:none}
+
+/* ===== MOBILE MENU ===== */
+.menu-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;
+  width:38px;height:38px;border-radius:50%;background:var(--purple);cursor:pointer;
+  -webkit-tap-highlight-color:transparent}
+.menu-toggle span{display:block;width:16px;height:1.6px;margin:0 auto;background:#fff;
+  border-radius:2px;transition:transform .22s ease,opacity .22s ease}
+.menu-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(6.6px) rotate(45deg)}
+.menu-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+.menu-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-6.6px) rotate(-45deg)}
+.mobile-nav{display:none}
+@media(max-width:820px){
+  .menu-toggle{display:flex}
+  .mobile-nav{display:flex;position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-120%);
+    width:min(92vw,420px);flex-direction:column;gap:6px;padding:14px;
+    background:rgba(255,255,255,.96);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+    border:1px solid rgba(114,29,155,.18);border-radius:22px;
+    box-shadow:0 18px 40px rgba(27,11,36,.18);z-index:99;
+    transition:transform .28s ease,opacity .28s ease;opacity:0;pointer-events:none}
+  .mobile-nav.open{transform:translateX(-50%) translateY(0);opacity:1;pointer-events:auto}
+  .mobile-nav a{padding:12px 14px;border-radius:12px;color:var(--ink);font-size:14px;font-weight:600;
+    transition:background .18s ease,color .18s ease}
+  .mobile-nav a:hover{background:var(--purple-pale);color:var(--purple)}
+  .mobile-nav a.active{background:var(--purple);color:#fff}
+}
 
 /* ===== BUTTONS ===== */
 .button{display:inline-flex;justify-content:center;align-items:center;gap:18px;min-height:49px;padding:11px 23px;
@@ -384,7 +411,7 @@ section[id]{scroll-margin-top:110px}
 }
 @media(max-width:820px){
   .nav-links{display:none}
-  .navbar{grid-template-columns:auto 1fr auto}
+  .navbar{grid-template-columns:auto 1fr auto auto}
 }
 @media(max-width:700px){
   .hero h1{font-size:clamp(40px,11.5vw,62px)}
@@ -449,7 +476,17 @@ section[id]{scroll-margin-top:110px}
     <a href="#contact" data-i18n="nav.contact">تواصل</a>
   </nav>
   <a class="button button-primary nav-cta" href="#contact" data-i18n="nav.cta">ابدأ مشروعك</a>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="فتح القائمة" data-i18n-aria="aria.menu">
+    <span></span><span></span><span></span>
+  </button>
 </header>
+
+<div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+  <a href="#work" data-i18n="nav.work">أعمالنا</a>
+  <a href="#process" data-i18n="process.kicker">العملية</a>
+  <a href="#guidelines" data-i18n="nav.guidelines">الشروط</a>
+  <a href="#contact" data-i18n="nav.contact">تواصل</a>
+</div>
 
 <div class="site-shell">
 
@@ -676,6 +713,7 @@ var I18N = {
     'meta.description': 'إديت كوميونيتي — مونتاج محتوى عقاري يساعد الوسطاء والملاك على بناء براند قوي وجذب مبيعات أكثر.',
 
     'aria.lang': 'اختيار اللغة',
+    'aria.menu': 'فتح القائمة',
     'aria.brandHome': 'العودة إلى الصفحة الرئيسية',
     'aria.nav': 'التنقل الرئيسي',
     'aria.metrics': 'أرقام الخدمة',
@@ -789,6 +827,7 @@ var I18N = {
     'meta.description': 'Edit Community — montage content 3a9ari kay3awen l wosata w l malk bach ybniw brand 9wi w yjibou mbi3at kter.',
 
     'aria.lang': 'Khtar l logha',
+    'aria.menu': 'Ft7 l menu',
     'aria.brandHome': 'Rje3 l sfa7a ra2issiya',
     'aria.nav': 'Tanawol ra2issi',
     'aria.metrics': 'Ar9am l khedma',
@@ -902,6 +941,7 @@ var I18N = {
     'meta.description': 'Edit Community — real estate content editing that helps agents and owners build a strong brand and win more sales.',
 
     'aria.lang': 'Choose language',
+    'aria.menu': 'Open menu',
     'aria.brandHome': 'Back to top',
     'aria.nav': 'Main navigation',
     'aria.metrics': 'Service numbers',
@@ -1108,6 +1148,50 @@ document.querySelectorAll('.lang-seg button').forEach(function(btn){
     applyLang(btn.getAttribute('data-lang'), true);
   });
 });
+
+/* ===== Mobile menu ===== */
+var menuToggle = document.querySelector('.menu-toggle');
+var mobileNav = document.querySelector('#mobile-nav');
+function closeMobileNav(){
+  if(!menuToggle || !mobileNav) return;
+  menuToggle.setAttribute('aria-expanded','false');
+  mobileNav.classList.remove('open');
+  mobileNav.setAttribute('aria-hidden','true');
+}
+menuToggle?.addEventListener('click', function(){
+  var expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+  menuToggle.setAttribute('aria-expanded', String(!expanded));
+  mobileNav.classList.toggle('open', !expanded);
+  mobileNav.setAttribute('aria-hidden', String(expanded));
+});
+mobileNav?.querySelectorAll('a').forEach(function(link){
+  link.addEventListener('click', closeMobileNav);
+});
+document.addEventListener('click', function(e){
+  if(mobileNav && mobileNav.classList.contains('open') &&
+     !mobileNav.contains(e.target) && !menuToggle.contains(e.target)){
+    closeMobileNav();
+  }
+});
+
+/* ===== Active nav highlighting ===== */
+var navLinks = document.querySelectorAll('.nav-links a, .mobile-nav a');
+function setActiveNav(id){
+  navLinks.forEach(function(a){
+    var href = a.getAttribute('href') || '';
+    var active = href === '#' + id;
+    a.classList.toggle('active', active);
+    if(active) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current');
+  });
+}
+if('IntersectionObserver' in window){
+  var navObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){ setActiveNav(entry.target.id); }
+    });
+  }, { threshold:0.35, rootMargin:'-30% 0px -55% 0px' });
+  document.querySelectorAll('section[id]').forEach(function(sec){ navObserver.observe(sec); });
+}
 
 /* ===== Year + reveal ===== */
 document.querySelector('#year').textContent = new Date().getFullYear();
